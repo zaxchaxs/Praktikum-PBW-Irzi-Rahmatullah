@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="public/styles/css/tugas1.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Pendaftaran Mahasiswa</h2>
+        <form>
+            <div class="form-group">
+                <label for="nama">Nomor Pokok Mahasiswa (NPM)</label>
+                <input type="text" id="npm" name="npm" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Nama Lengkap</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="telepon">Alamat</label>
+                <textarea name="alamat" id="alamat" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <label>Laki-Laki</label>
+                        <input style="width: fit-content;" type="radio" value="Laki-Laki" required> 
+                    </div>
+                    <div class="radio-item">
+                        <label>Perempuan</label>
+                        <input style="width: fit-content;" type="radio" name="gender" value="Perempuan" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="gender">Program Studi</label>
+                <select id="gender" name="gender" required>
+                    <option value="pria">Informatika</option>
+                    <option value="wanita">Sistem Informasi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Daftar</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
