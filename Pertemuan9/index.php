@@ -10,41 +10,51 @@ class Book {
         $this->name = $name;
         $this->setQty($qty);
     }
-
-    // Getter code_book
-    public function getCodeBook() {
-        return $this->code_book;
-    }
-
-    // Getter qty
-    public function getQty() {
-        return $this->qty;
-    }
-
-    // Setter code_book
+    
+    // Setter private
     private function setCodeBook($code_book) {
         if (preg_match('/^[A-Z]{2}[0-9]{2}$/', $code_book)) {
             $this->code_book = $code_book;
         } else {
-            echo "Error: Format code_book harus dalam format 'BB00' (2 huruf besar dan 2 angka).\n";
+            echo "Error: Format code_book harus berupa 2 huruf kapital diikuti 2 angka (contoh: BB00).\n";
         }
     }
-
-    // Setter qty
+    
+    // Getter
+    public function getCodeBook() {
+        return $this->code_book;
+    }
+    public function getName() {
+        return $this->name;
+    }
+    public function getQty() {
+        return $this->qty;
+    }
+    // setter
     private function setQty($qty) {
         if (is_int($qty) && $qty > 0) {
             $this->qty = $qty;
         } else {
-            echo "Error: Qty harus berupa bilangan bulat positif.\n";
+            echo "Error: Jumlah buku harus angka positif.\n";
         }
     }
 }
 
-$book1 = new Book("AB12", "PBW", 5);
-echo "Code Book: ". $book1->getCodeBook();
-echo "\n";
-echo "Qty Book: " . $book1->getQty();
-echo "\n";
-echo "\n";
+// Pengujian:
+$book1 = new Book("BB01", "Pemrograman PHP", 10);
+$book2 = new Book("AB12", "Dasar Java", 5);
 
-$book2 = new Book("aB12", "Salah Format", -3);
+echo "Kode Buku: " . $book1->getCodeBook() . "\n";
+echo "Nama Buku: " . $book1->getName() . "\n";
+echo "Jumlah Buku: " . $book1->getQty() . "\n";
+
+echo "Kode Buku: " . $book2->getCodeBook() . "\n";
+echo "Nama Buku: " . $book2->getName() . "\n";
+echo "Jumlah Buku: " . $book2->getQty() . "\n";
+
+// Pengujian dengan kode buku yang salah
+
+// formatnya salah:
+$book3 = new Book("BB1", "Pemrograman Web", 7); 
+// jumlah bukunya salah:
+$book4 = new Book("BB02", "Pemrograman C++", -5);
